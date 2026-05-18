@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Contact Dianna Brang about buying, selling, relocating, or investing in Orange County and Los Angeles real estate."
+    >
+    <title>Contact Dianna Brang | California Real Estate</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+  </head>
+  <body class="contact-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" data-site-header>
+      <a class="brand" href="./index.html" aria-label="Dianna Brang home">
+        <span class="brand-mark">DB</span>
+        <span>
+          <strong>Dianna Brang</strong>
+          <small>California Real Estate</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <a href="./index.html#about">About</a>
+        <a href="./index.html#services">Services</a>
+        <a href="./index.html#areas">Areas</a>
+        <a href="./contact.html" aria-current="page">Contact</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="contact-hero">
+        <div class="contact-intro">
+          <p class="eyebrow">Contact Dianna</p>
+          <h1>Tell Dianna what home means next.</h1>
+          <p>
+            Share a few details about your timeline, target area, and goals. This form is
+            ready for a future delivery service, and the current version validates your
+            information before confirming it is prepared.
+          </p>
+        </div>
+      </section>
+
+      <section class="section contact-section">
+        <div class="contact-layout">
+          <aside class="contact-aside">
+            <img src="./media/profile_pic.jpg" alt="Portrait of Dianna Brang">
+            <h2>Dianna Brang</h2>
+            <p>
+              Supporting buyers, sellers, relocating clients, and investors across Orange
+              County, Long Beach, and nearby Los Angeles communities.
+            </p>
+            <a href="https://www.zillow.com/profile/diannabrang" rel="noopener noreferrer" target="_blank">
+              View Dianna on Zillow
+            </a>
+          </aside>
+
+          <form class="contact-form" data-contact-form novalidate>
+            <div class="form-grid">
+              <label>
+                <span>Name</span>
+                <input type="text" name="name" autocomplete="name" required>
+              </label>
+
+              <label>
+                <span>Email</span>
+                <input type="email" name="email" autocomplete="email" required>
+              </label>
+
+              <label>
+                <span>Phone</span>
+                <input type="tel" name="phone" autocomplete="tel">
+              </label>
+
+              <label>
+                <span>Interest Type</span>
+                <select name="interest" required>
+                  <option value="">Choose one</option>
+                  <option value="buying">Buying</option>
+                  <option value="selling">Selling</option>
+                  <option value="relocating">Relocating</option>
+                  <option value="investing">Investing</option>
+                </select>
+              </label>
+
+              <label>
+                <span>Target Cities or Areas</span>
+                <input type="text" name="areas" placeholder="Newport Beach, Irvine, Long Beach..." required>
+              </label>
+
+              <label>
+                <span>Timeline</span>
+                <select name="timeline" required>
+                  <option value="">Choose one</option>
+                  <option value="now">Ready now</option>
+                  <option value="1-3 months">1-3 months</option>
+                  <option value="3-6 months">3-6 months</option>
+                  <option value="6+ months">6+ months</option>
+                  <option value="exploring">Just exploring</option>
+                </select>
+              </label>
+
+              <label>
+                <span>Budget Range</span>
+                <input type="text" name="budget" placeholder="Optional">
+              </label>
+
+              <label class="full-field">
+                <span>Message</span>
+                <textarea name="message" rows="6" required></textarea>
+              </label>
+            </div>
+
+            <p class="form-note">
+              This first version does not send messages yet. It is prepared for a future
+              form endpoint without changing the page design.
+            </p>
+
+            <button class="button button-primary" type="submit">Prepare Inquiry</button>
+            <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Dianna Brang &bull; California Real Estate</p>
+      <a href="https://www.zillow.com/profile/diannabrang" rel="noopener noreferrer" target="_blank">
+        View Dianna on Zillow
+      </a>
+    </footer>
+
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
