@@ -374,6 +374,8 @@ h3 {
 .review-track {
   display: flex;
   width: max-content;
+  max-width: none;
+  flex-wrap: nowrap;
   gap: 18px;
   padding: 8px 18px 18px;
   animation: review-scroll 74s linear infinite;
@@ -385,6 +387,7 @@ h3 {
 }
 
 .review-card {
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
