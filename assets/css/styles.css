@@ -319,6 +319,116 @@ h3 {
   gap: 12px;
 }
 
+.reviews-section {
+  overflow: hidden;
+  padding: clamp(52px, 7vw, 82px) 0;
+  background:
+    linear-gradient(90deg, rgba(248, 243, 236, 1), rgba(255, 250, 244, 0.92), rgba(248, 243, 236, 1)),
+    var(--ivory);
+}
+
+.reviews-heading {
+  width: min(980px, calc(100% - 40px));
+  margin: 0 auto 30px;
+}
+
+.reviews-heading h2 {
+  max-width: 760px;
+  margin-bottom: 12px;
+}
+
+.reviews-heading p:not(.eyebrow) {
+  max-width: 680px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.review-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.review-marquee::before,
+.review-marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  width: clamp(34px, 8vw, 120px);
+  pointer-events: none;
+}
+
+.review-marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--ivory), rgba(248, 243, 236, 0));
+}
+
+.review-marquee::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--ivory), rgba(248, 243, 236, 0));
+}
+
+.review-track {
+  display: flex;
+  width: max-content;
+  gap: 18px;
+  padding: 8px 18px 18px;
+  animation: review-scroll 74s linear infinite;
+}
+
+.review-marquee:hover .review-track,
+.review-marquee:focus-within .review-track {
+  animation-play-state: paused;
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: clamp(280px, 28vw, 390px);
+  min-height: 248px;
+  padding: 25px;
+  border: 1px solid rgba(35, 48, 45, 0.12);
+  border-radius: 8px;
+  background: var(--warm-white);
+  box-shadow: 0 14px 36px rgba(35, 48, 45, 0.09);
+}
+
+.review-card p {
+  margin-bottom: 24px;
+  color: var(--charcoal);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.12rem;
+  line-height: 1.48;
+}
+
+.review-card footer {
+  color: var(--charcoal);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.review-card span {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+@keyframes review-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -771,6 +881,14 @@ h3 {
     transform: none;
   }
 
+  .review-track {
+    animation-duration: 96s;
+  }
+
+  .review-card {
+    min-height: 286px;
+  }
+
   .service-grid,
   .form-grid {
     grid-template-columns: 1fr;
@@ -806,5 +924,19 @@ h3 {
 
   .parallax-image {
     transform: none !important;
+  }
+
+  .review-track {
+    transform: none !important;
+    scroll-snap-type: x mandatory;
+    animation: none;
+  }
+
+  .review-marquee {
+    overflow-x: auto;
+  }
+
+  .review-card {
+    scroll-snap-align: start;
   }
 }
