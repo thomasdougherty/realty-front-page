@@ -41,12 +41,21 @@
   }
 
   function markInvalid(field, invalid) {
+    if (!field) {
+      return;
+    }
+
     field.classList.toggle("field-error", invalid);
     field.setAttribute("aria-invalid", invalid ? "true" : "false");
   }
 
   function validateForm(form) {
     var fields = Array.prototype.slice.call(form.querySelectorAll("input, select, textarea"));
+    var emailField = form.querySelector('[name="email"]');
+    var phoneField = form.querySelector('[name="phone"]');
+    var hasContactMethod = Boolean(
+      (emailField && emailField.value.trim()) || (phoneField && phoneField.value.trim())
+    );
     var isValid = true;
 
     fields.forEach(function (field) {
@@ -64,31 +73,38 @@
       isValid = isValid && !invalid;
     });
 
+    if (!hasContactMethod) {
+      if (emailField) {
+        markInvalid(emailField, true);
+      }
+      if (phoneField) {
+        markInvalid(phoneField, true);
+      }
+      isValid = false;
+    }
+
     return isValid;
   }
 
-  // Future integration point: replace this static handler with a fetch() call
-  // to a form service endpoint when Dianna's delivery destination is ready.
   function handleContactSubmit(event) {
-    event.preventDefault();
-
     var form = event.currentTarget;
     var status = form.querySelector("[data-form-status]");
     var firstInvalid;
 
     if (!validateForm(form)) {
+      event.preventDefault();
       firstInvalid = form.querySelector(".field-error");
       if (firstInvalid) {
         firstInvalid.focus();
       }
       if (status) {
-        status.textContent = "Please complete the highlighted fields before preparing the inquiry.";
+        status.textContent = "Please include your name and either an email address or phone number.";
       }
       return;
     }
 
     if (status) {
-      status.textContent = "Inquiry prepared. A future form endpoint can send this directly to Dianna.";
+      status.textContent = "Sending your inquiry...";
     }
   }
 
@@ -133,6 +149,14 @@
     contactForm.addEventListener("input", function (event) {
       if (event.target.matches("input, select, textarea")) {
         markInvalid(event.target, false);
+      }
+      if (event.target.matches('[name="email"], [name="phone"]')) {
+        var emailField = contactForm.querySelector('[name="email"]');
+        var phoneField = contactForm.querySelector('[name="phone"]');
+        if ((emailField && emailField.value.trim()) || (phoneField && phoneField.value.trim())) {
+          markInvalid(emailField, false);
+          markInvalid(phoneField, false);
+        }
       }
     });
   }

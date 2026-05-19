@@ -755,6 +755,15 @@ h3 {
   transition: border-color 160ms ease, box-shadow 160ms ease;
 }
 
+.contact-form select:has(option[value=""]:checked),
+.contact-form select option[value=""] {
+  color: rgba(35, 48, 45, 0.52);
+}
+
+.contact-form select option:not([value=""]) {
+  color: var(--charcoal);
+}
+
 .contact-form textarea {
   resize: vertical;
   min-height: 160px;
