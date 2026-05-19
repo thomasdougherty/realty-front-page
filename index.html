@@ -8,13 +8,19 @@
       content="Dianna Brang helps buyers and sellers move confidently through Orange County, Long Beach, Los Angeles, and Southern California real estate."
     >
     <title>Dianna Brang | California Real Estate Advisor</title>
+    <link rel="canonical" href="https://www.diannabranghomes.com/">
     <link rel="stylesheet" href="./assets/css/styles.css?v=20260519-2">
+    <script>
+      if (window.location.pathname.endsWith("/index.html")) {
+        window.location.replace(window.location.pathname.replace(/index\.html$/, "") + window.location.search + window.location.hash);
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header" data-site-header>
-      <a class="brand" href="./index.html" aria-label="Dianna Brang home">
+      <a class="brand" href="./" aria-label="Dianna Brang home">
         <span class="brand-mark">DB</span>
         <span>
           <strong>Dianna Brang</strong>
@@ -30,10 +36,10 @@
       </button>
 
       <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-        <a href="./index.html#about">About</a>
-        <a href="./index.html#services">Services</a>
-        <a href="./index.html#areas">Areas</a>
-        <a href="./contact.html">Contact</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#areas">Areas</a>
+        <a href="./contact/">Contact</a>
       </nav>
     </header>
 
@@ -59,7 +65,7 @@
             planning their next chapter.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="./contact.html">Start a Conversation</a>
+            <a class="button button-primary" href="./contact/">Start a Conversation</a>
             <a class="button button-secondary" href="#services">Explore Services</a>
           </div>
         </div>
@@ -347,7 +353,7 @@
             Share where you are in the process, what you are hoping for, and what would
             make the move feel successful.
           </p>
-          <a class="button button-primary" href="./contact.html">Contact Dianna</a>
+          <a class="button button-primary" href="./contact/">Contact Dianna</a>
         </div>
       </section>
     </main>

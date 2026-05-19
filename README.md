@@ -5,7 +5,8 @@ A warm, static GitHub Pages website for Dianna Brang's California real estate pr
 ## Pages
 
 - `index.html` - homepage with profile, services, service areas, and subtle Zillow link
-- `contact.html` - static-ready inquiry form with client-side validation
+- `contact/index.html` - clean-URL inquiry form with client-side validation
+- `contact.html` - redirect for old `/contact.html` links
 
 ## Local Assets
 
