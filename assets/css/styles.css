@@ -451,6 +451,12 @@ h3 {
   transform: translateY(-1px);
 }
 
+.button:disabled {
+  cursor: wait;
+  opacity: 0.68;
+  transform: none;
+}
+
 .button-primary {
   background: var(--terracotta);
   color: var(--warm-white);
@@ -795,6 +801,14 @@ h3 {
   min-height: 24px;
   color: var(--sage-dark);
   font-weight: 750;
+}
+
+.form-status.is-error {
+  color: var(--terracotta-dark);
+}
+
+.form-status.is-success {
+  color: var(--sage-dark);
 }
 
 @media (max-width: 920px) {

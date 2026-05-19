@@ -89,6 +89,7 @@
   function handleContactSubmit(event) {
     var form = event.currentTarget;
     var status = form.querySelector("[data-form-status]");
+    var submitButton = form.querySelector('button[type="submit"]');
     var firstInvalid;
 
     if (!validateForm(form)) {
@@ -103,9 +104,54 @@
       return;
     }
 
+    if (!window.fetch || !window.FormData) {
+      return;
+    }
+
+    event.preventDefault();
+
     if (status) {
+      status.classList.remove("is-error", "is-success");
       status.textContent = "Sending your inquiry...";
     }
+
+    if (submitButton) {
+      submitButton.disabled = true;
+    }
+
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: {
+        Accept: "application/json"
+      }
+    })
+      .then(function (response) {
+        return response.json().then(function (data) {
+          if (!response.ok) {
+            throw new Error(data.message || "The form could not be sent.");
+          }
+          return data;
+        });
+      })
+      .then(function () {
+        form.reset();
+        if (status) {
+          status.classList.add("is-success");
+          status.textContent = "Thank you. Your inquiry has been sent, and Dianna will follow up soon.";
+        }
+      })
+      .catch(function () {
+        if (status) {
+          status.classList.add("is-error");
+          status.textContent = "Something went wrong while sending. Please try again in a moment.";
+        }
+      })
+      .finally(function () {
+        if (submitButton) {
+          submitButton.disabled = false;
+        }
+      });
   }
 
   setHeaderState();
