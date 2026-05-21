@@ -349,9 +349,9 @@ h3 {
   width: min(980px, calc(100% - 40px));
   margin: -8px auto 24px;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
   color: var(--muted);
   font-size: 0.95rem;
 }
@@ -359,6 +359,12 @@ h3 {
 .award-note strong {
   color: var(--charcoal);
   font-weight: 800;
+}
+
+.award-note a {
+  color: var(--terracotta-dark);
+  font-weight: 750;
+  text-underline-offset: 4px;
 }
 
 .review-marquee {
@@ -750,6 +756,16 @@ h3 {
 
 .areas-grid {
   grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+}
+
+.area-list-column {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.area-list-title {
+  margin-bottom: 0;
 }
 
 .area-list {
