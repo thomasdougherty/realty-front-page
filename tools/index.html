@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Planning tools from Dianna Brang for estimating monthly mortgage payments in Southern California."
+    >
+    <title>Tools | Dianna Brang California Real Estate</title>
+    <link rel="canonical" href="https://www.diannabranghomes.com/tools/">
+    <link rel="stylesheet" href="../assets/css/styles.css?v=20260519-3">
+    <script>
+      if (window.location.pathname.endsWith("/index.html")) {
+        window.location.replace(window.location.pathname.replace(/index\.html$/, "") + window.location.search + window.location.hash);
+      }
+    </script>
+  </head>
+  <body class="interior-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" data-site-header>
+      <a class="brand" href="../" aria-label="Dianna Brang home">
+        <span class="brand-mark">DB</span>
+        <span>
+          <strong>Dianna Brang</strong>
+          <small>California Real Estate</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <a href="../#about">About</a>
+        <a href="../#services">Services</a>
+        <a href="./" aria-current="page">Tools</a>
+        <a href="../#areas">Areas</a>
+        <a href="../contact/">Contact</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="contact-hero">
+        <div class="contact-intro">
+          <p class="eyebrow">Buyer Planning Tool</p>
+          <h1>Estimate your monthly payment.</h1>
+          <p>
+            Use this as a starting point for comparing price ranges, down payment
+            options, and monthly comfort before speaking with a lender.
+          </p>
+        </div>
+      </section>
+
+      <section class="section calculator-section" id="mortgage-calculator">
+        <div class="calculator-layout">
+          <div class="calculator-intro">
+            <p class="eyebrow">Mortgage Calculator</p>
+            <h2>Plan with clearer numbers.</h2>
+            <p>
+              Adjust the assumptions below to see how principal, interest, taxes,
+              insurance, and HOA dues can shape the monthly estimate.
+            </p>
+            <a class="button button-primary" href="../contact/">Talk through your budget</a>
+          </div>
+
+          <form class="mortgage-calculator" data-mortgage-calculator>
+            <div class="calculator-fields">
+              <label>
+                <span>Home price</span>
+                <input
+                  type="number"
+                  name="homePrice"
+                  min="0"
+                  step="1000"
+                  value="850000"
+                  inputmode="decimal"
+                >
+              </label>
+              <label>
+                <span>Down payment</span>
+                <input
+                  type="number"
+                  name="downPayment"
+                  min="0"
+                  step="1000"
+                  value="170000"
+                  inputmode="decimal"
+                >
+              </label>
+              <label>
+                <span>Interest rate</span>
+                <input
+                  type="number"
+                  name="interestRate"
+                  min="0"
+                  step="0.01"
+                  value="6.75"
+                  inputmode="decimal"
+                >
+              </label>
+              <label>
+                <span>Loan term</span>
+                <select name="loanTerm">
+                  <option value="30" selected>30 years</option>
+                  <option value="20">20 years</option>
+                  <option value="15">15 years</option>
+                  <option value="10">10 years</option>
+                </select>
+              </label>
+              <label>
+                <span>Property tax</span>
+                <input
+                  type="number"
+                  name="propertyTax"
+                  min="0"
+                  step="0.01"
+                  value="1.1"
+                  inputmode="decimal"
+                >
+              </label>
+              <label>
+                <span>Insurance / month</span>
+                <input
+                  type="number"
+                  name="insurance"
+                  min="0"
+                  step="10"
+                  value="150"
+                  inputmode="decimal"
+                >
+              </label>
+              <label class="full-field">
+                <span>HOA / month</span>
+                <input
+                  type="number"
+                  name="hoa"
+                  min="0"
+                  step="10"
+                  value="0"
+                  inputmode="decimal"
+                >
+              </label>
+            </div>
+
+            <div class="calculator-result" aria-live="polite">
+              <span>Estimated monthly payment</span>
+              <strong data-payment-total>$0</strong>
+              <dl>
+                <div>
+                  <dt>Principal &amp; interest</dt>
+                  <dd data-payment-principal>$0</dd>
+                </div>
+                <div>
+                  <dt>Taxes</dt>
+                  <dd data-payment-tax>$0</dd>
+                </div>
+                <div>
+                  <dt>Insurance &amp; HOA</dt>
+                  <dd data-payment-extras>$0</dd>
+                </div>
+              </dl>
+              <p>
+                This estimate is for planning only and is not a loan quote, approval, or
+                financial advice.
+              </p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Dianna Brang &bull; California Real Estate</p>
+      <a href="https://www.zillow.com/profile/diannabrang" rel="noopener noreferrer" target="_blank">
+        View Dianna on Zillow
+      </a>
+    </footer>
+
+    <script src="../assets/js/main.js?v=20260519-3"></script>
+  </body>
+</html>

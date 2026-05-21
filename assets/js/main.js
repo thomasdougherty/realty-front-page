@@ -3,6 +3,7 @@
   var navToggle = document.querySelector(".nav-toggle");
   var parallaxImages = Array.prototype.slice.call(document.querySelectorAll(".parallax-image"));
   var contactForm = document.querySelector("[data-contact-form]");
+  var mortgageCalculator = document.querySelector("[data-mortgage-calculator]");
 
   document.body.classList.toggle("contact-page", window.location.pathname.indexOf("contact") !== -1);
 
@@ -154,8 +155,66 @@
       });
   }
 
+  function getNumericValue(form, name) {
+    var field = form.querySelector('[name="' + name + '"]');
+    var value = field ? parseFloat(field.value) : 0;
+
+    if (!Number.isFinite(value) || value < 0) {
+      return 0;
+    }
+
+    return value;
+  }
+
+  function formatCurrency(value) {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      maximumFractionDigits: 0
+    }).format(Math.max(0, value));
+  }
+
+  function updateMortgageCalculator() {
+    if (!mortgageCalculator) {
+      return;
+    }
+
+    var homePrice = getNumericValue(mortgageCalculator, "homePrice");
+    var downPayment = getNumericValue(mortgageCalculator, "downPayment");
+    var interestRate = getNumericValue(mortgageCalculator, "interestRate");
+    var loanTerm = getNumericValue(mortgageCalculator, "loanTerm");
+    var propertyTax = getNumericValue(mortgageCalculator, "propertyTax");
+    var insurance = getNumericValue(mortgageCalculator, "insurance");
+    var hoa = getNumericValue(mortgageCalculator, "hoa");
+    var loanAmount = Math.max(0, homePrice - downPayment);
+    var monthCount = Math.max(1, loanTerm * 12);
+    var monthlyRate = interestRate / 100 / 12;
+    var principalAndInterest;
+    var monthlyTax = homePrice * (propertyTax / 100) / 12;
+    var monthlyExtras = insurance + hoa;
+    var total;
+
+    if (monthlyRate > 0) {
+      principalAndInterest = loanAmount * (
+        monthlyRate * Math.pow(1 + monthlyRate, monthCount)
+      ) / (
+        Math.pow(1 + monthlyRate, monthCount) - 1
+      );
+    } else {
+      principalAndInterest = loanAmount / monthCount;
+    }
+
+    total = principalAndInterest + monthlyTax + monthlyExtras;
+
+    mortgageCalculator.querySelector("[data-payment-total]").textContent = formatCurrency(total);
+    mortgageCalculator.querySelector("[data-payment-principal]").textContent = formatCurrency(principalAndInterest);
+    mortgageCalculator.querySelector("[data-payment-tax]").textContent = formatCurrency(monthlyTax);
+    mortgageCalculator.querySelector("[data-payment-extras]").textContent = formatCurrency(monthlyExtras);
+  }
+
   setHeaderState();
   updateParallax();
+  updateMortgageCalculator();
 
   window.addEventListener("scroll", function () {
     window.requestAnimationFrame(function () {
@@ -204,6 +263,13 @@
           markInvalid(phoneField, false);
         }
       }
+    });
+  }
+
+  if (mortgageCalculator) {
+    mortgageCalculator.addEventListener("input", updateMortgageCalculator);
+    mortgageCalculator.addEventListener("submit", function (event) {
+      event.preventDefault();
     });
   }
 }());
