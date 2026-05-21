@@ -7,7 +7,7 @@
     },
     {
       key: "tools",
-      label: "Tools",
+      label: "Resources",
       href: "tools/"
     },
     {
