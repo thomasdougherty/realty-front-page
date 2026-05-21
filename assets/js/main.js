@@ -22,8 +22,10 @@
     }
   ];
   var header = document.querySelector("[data-site-header]");
+  var footer = document.querySelector("[data-site-footer]");
 
   renderSiteHeader(header);
+  renderSiteFooter(footer);
 
   var navToggle = header ? header.querySelector(".nav-toggle") : document.querySelector(".nav-toggle");
   var parallaxImages = Array.prototype.slice.call(document.querySelectorAll(".parallax-image"));
@@ -79,6 +81,19 @@
       + '<nav class="site-nav" id="site-nav" aria-label="Primary navigation">'
       + navLinks
       + '</nav>';
+  }
+
+  function renderSiteFooter(siteFooter) {
+    if (!siteFooter) {
+      return;
+    }
+
+    siteFooter.innerHTML = ''
+      + '<p class="footer-brand">'
+      + '<span>Dianna Brang</span>'
+      + '<span class="footer-license">DRE #02083272</span>'
+      + '</p>'
+      + '<p class="footer-item">e&bull;homes</p>';
   }
 
   function setHeaderState() {
