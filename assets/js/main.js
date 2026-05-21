@@ -1,11 +1,85 @@
 (function () {
+  var primaryNavItems = [
+    {
+      key: "about",
+      label: "About",
+      href: "#about"
+    },
+    {
+      key: "tools",
+      label: "Tools",
+      href: "tools/"
+    },
+    {
+      key: "blog",
+      label: "Blog",
+      href: "blog/"
+    },
+    {
+      key: "contact",
+      label: "Contact",
+      href: "contact/"
+    }
+  ];
   var header = document.querySelector("[data-site-header]");
-  var navToggle = document.querySelector(".nav-toggle");
+
+  renderSiteHeader(header);
+
+  var navToggle = header ? header.querySelector(".nav-toggle") : document.querySelector(".nav-toggle");
   var parallaxImages = Array.prototype.slice.call(document.querySelectorAll(".parallax-image"));
   var contactForm = document.querySelector("[data-contact-form]");
   var mortgageCalculator = document.querySelector("[data-mortgage-calculator]");
 
   document.body.classList.toggle("contact-page", window.location.pathname.indexOf("contact") !== -1);
+
+  function normalizeHeaderRoot(root) {
+    var normalized = (root || ".").replace(/\/+$/, "");
+    return normalized || ".";
+  }
+
+  function buildHeaderHref(root, path) {
+    if (path.charAt(0) === "#") {
+      return root === "." ? path : root + "/" + path;
+    }
+
+    return root + "/" + path;
+  }
+
+  function renderSiteHeader(siteHeader) {
+    var root;
+    var activePage;
+    var navLinks;
+
+    if (!siteHeader) {
+      return;
+    }
+
+    root = normalizeHeaderRoot(siteHeader.getAttribute("data-header-root"));
+    activePage = siteHeader.getAttribute("data-active-page") || "";
+    navLinks = primaryNavItems.map(function (item) {
+      var currentAttribute = item.key === activePage ? ' aria-current="page"' : "";
+
+      return '<a href="' + buildHeaderHref(root, item.href) + '"' + currentAttribute + ">" + item.label + "</a>";
+    }).join("");
+
+    siteHeader.innerHTML = ''
+      + '<a class="brand" href="' + root + '/" aria-label="Dianna Brang home">'
+      + '<span class="brand-mark">DB</span>'
+      + '<span>'
+      + '<strong>Dianna Brang</strong>'
+      + '<small>California Real Estate</small>'
+      + '</span>'
+      + '</a>'
+      + '<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">'
+      + '<span class="nav-toggle-line"></span>'
+      + '<span class="nav-toggle-line"></span>'
+      + '<span class="nav-toggle-line"></span>'
+      + '<span class="sr-only">Toggle navigation</span>'
+      + '</button>'
+      + '<nav class="site-nav" id="site-nav" aria-label="Primary navigation">'
+      + navLinks
+      + '</nav>';
+  }
 
   function setHeaderState() {
     if (!header) {
