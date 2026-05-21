@@ -561,8 +561,15 @@ h3 {
 }
 
 .section-heading {
-  width: min(1000px, 100%);
+  width: min(1120px, 100%);
   margin: 0 auto 36px;
+}
+
+.services-title {
+  max-width: 760px;
+  margin-bottom: 0;
+  color: var(--terracotta);
+  font-size: 4.35rem;
 }
 
 .service-grid {
@@ -1321,6 +1328,10 @@ h3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .services-title {
+    font-size: 3.35rem;
+  }
+
   .contact-aside {
     position: static;
   }
@@ -1394,6 +1405,10 @@ h3 {
 
   .service-card {
     min-height: 0;
+  }
+
+  .services-title {
+    font-size: 2.75rem;
   }
 
   .image-band {
