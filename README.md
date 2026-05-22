@@ -5,7 +5,8 @@ A warm, static GitHub Pages website for Dianna Brang's California real estate pr
 ## Pages
 
 - `index.html` - homepage with profile, services, service areas, and subtle Zillow link
-- `tools/index.html` - clean-URL planning tools page with mortgage calculator
+- `resources/index.html` - clean-URL resources landing page
+- `resources/mortgage-loan-calculator/index.html` - standalone mortgage loan calculator
 - `contact/index.html` - clean-URL inquiry form with client-side validation
 - `contact.html` - redirect for old `/contact.html` links
 

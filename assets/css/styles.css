@@ -1005,6 +1005,12 @@ h3 {
     url("../img/blog/housing-market-update-2026.jpg") center / cover;
 }
 
+.resources-index-hero {
+  background:
+    linear-gradient(125deg, rgba(35, 48, 45, 0.86), rgba(109, 150, 164, 0.64)),
+    url("../img/california-living-parallax.jpg") center / cover;
+}
+
 .blog-list-section {
   background: var(--ivory);
 }

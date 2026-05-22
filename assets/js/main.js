@@ -6,9 +6,9 @@
       href: "#about"
     },
     {
-      key: "tools",
+      key: "resources",
       label: "Resources",
-      href: "tools/"
+      href: "resources/"
     },
     {
       key: "blog",
