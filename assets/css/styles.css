@@ -1022,6 +1022,96 @@ h3 {
     url("../img/california-living-parallax.jpg") center / cover;
 }
 
+.connect-section {
+  padding-top: calc(var(--header-height) + clamp(48px, 7vw, 86px));
+  background: var(--ivory);
+}
+
+.connect-heading {
+  width: min(1120px, 100%);
+  margin: 0 auto clamp(28px, 5vw, 48px);
+}
+
+.connect-heading h1 {
+  font-size: clamp(2.4rem, 6vw, 4.7rem);
+}
+
+.connect-aside img {
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.connect-role {
+  margin-bottom: 4px;
+  color: var(--charcoal);
+  font-weight: 750;
+}
+
+.connect-affiliations {
+  margin-top: 0;
+  color: var(--sage-dark);
+  font-weight: 750;
+}
+
+.connect-panel {
+  display: grid;
+  gap: 22px;
+}
+
+.connect-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: clamp(22px, 4vw, 38px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--warm-white);
+  box-shadow: var(--shadow);
+}
+
+.connect-actions .button:first-child {
+  grid-column: 1 / -1;
+}
+
+.connect-button {
+  border-color: rgba(35, 48, 45, 0.16);
+  background: #fffdf9;
+  color: var(--charcoal);
+}
+
+.connect-button:hover,
+.connect-button:focus-visible {
+  border-color: rgba(183, 111, 75, 0.46);
+  background: rgba(183, 111, 75, 0.08);
+}
+
+.connect-details {
+  padding: clamp(22px, 4vw, 34px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--warm-white);
+}
+
+.connect-details p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.connect-details strong {
+  color: var(--charcoal);
+}
+
+.connect-details a {
+  color: var(--terracotta-dark);
+  font-weight: 750;
+  text-underline-offset: 4px;
+}
+
+.connect-disclaimer {
+  margin-top: 18px !important;
+  font-size: 0.86rem;
+}
+
 .blog-list-section {
   background: var(--ivory);
 }
@@ -1352,6 +1442,10 @@ h3 {
 
   .contact-aside {
     position: static;
+  }
+
+  .connect-actions {
+    grid-template-columns: 1fr;
   }
 
   .blog-card-image {
