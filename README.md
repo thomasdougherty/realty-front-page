@@ -16,7 +16,9 @@ A warm, static GitHub Pages website for Dianna Brang's California real estate pr
 
 ## Local Assets
 
-- `media/profile_pic.jpg` - Dianna's profile photo
+- `media/profile_pic-640.png` - optimized profile photo used on the site
+- `media/profile_pic-320.jpg` - optimized profile photo embedded in the vCard
+- `media/profile_pic.jpg` - original profile photo source
 - `assets/img/california-home-hero.jpg` - generated California home hero image
 - `assets/img/california-living-parallax.jpg` - generated indoor-outdoor living image
 - `assets/img/resources/` - generated resource article cover images
